@@ -320,94 +320,6 @@ button:focus-visible {
 }
 
 /* ============================================================
-   実例動画
-============================================================ */
-
-.video-card {
-  background: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  box-shadow: 0 12px 28px -18px var(--color-card-shadow);
-}
-
-.video-card__player {
-  /* 動画の実際の縦横比に合わせて自動でサイズが決まります（縦長・横長どちらもOK） */
-  width: 100%;
-  max-width: 420px;
-  margin: 0 auto;
-  border-radius: var(--radius-md);
-  background: #0f1720;
-}
-
-.video-card__fallback {
-  color: var(--color-text-muted);
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-.video-card__caption {
-  margin: 1.5rem 0 0;
-  text-align: center;
-  color: var(--color-text-muted);
-}
-
-/* YouTube埋め込みモード用（YouTube Shorts等、縦長9:16の動画を想定した固定枠） */
-.video-card__embed-wrap {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  aspect-ratio: 9 / 16;
-  margin: 0 auto;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  background: #0f1720;
-}
-.video-card__embed-wrap iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* ============================================================
-   STEP セクション
-============================================================ */
-
-.step__number {
-  text-align: center;
-  color: var(--color-primary);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  margin: 0 0 0.5rem;
-}
-
-.step__title {
-  text-align: center;
-  font-size: clamp(1.35rem, 4.5vw, 1.75rem);
-  margin: 0 0 1.75rem;
-  font-weight: 800;
-}
-
-.note-box {
-  margin-top: 1.75rem;
-  background: var(--color-accent-light);
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1.4rem;
-}
-
-.note-box__label {
-  font-weight: 800;
-  color: var(--color-primary-dark);
-  margin: 0 0 0.5em;
-}
-
-.note-box p:last-child {
-  margin-bottom: 0;
-}
-
-/* ============================================================
    プロンプトボックス（コピー機能）
 ============================================================ */
 
@@ -459,7 +371,7 @@ button:focus-visible {
 }
 
 /* ============================================================
-   追加質問リスト
+   質問リスト
 ============================================================ */
 
 .question-list {
@@ -472,37 +384,76 @@ button:focus-visible {
   margin-bottom: 1rem;
 }
 
-/* ============================================================
-   まとめリスト
-============================================================ */
-
-.summary-list {
-  list-style: none;
-  margin: 0 0 2rem;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.9rem;
+/* 5つの質問カード（番号・見出し・分かることの説明付き） */
+.question-card--main {
+  padding: 1.75rem 1.5rem;
 }
 
-.summary-list li {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  padding: 1rem 1.25rem;
-}
-
-.summary-list__number {
-  flex: none;
-  background: var(--color-primary);
-  color: #fff;
+.question-card__number {
+  display: inline-block;
+  background: var(--color-accent-light);
+  color: var(--color-primary-dark);
   font-weight: 800;
   font-size: 0.8rem;
-  padding: 0.4em 0.8em;
+  padding: 0.35em 0.9em;
   border-radius: 999px;
+  margin: 0 0 0.9rem;
+}
+
+.question-card__title {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.question-card__insight {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 1.25rem;
+}
+
+.question-card__insight-label {
+  display: block;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  margin-bottom: 0.3em;
+}
+
+/* まとめてコピー */
+.bulk-copy {
+  margin-top: 1.75rem;
+  text-align: center;
+}
+
+.bulk-copy__note {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
+}
+
+/* 画面には表示せず、コピー機能だけが参照するテキスト */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================================================
+   まとめ
+============================================================ */
+
+.summary__highlight {
+  text-align: center;
+  color: var(--color-primary-dark);
+  font-size: clamp(1.15rem, 4vw, 1.4rem);
+  font-weight: 800;
+  margin: 1.5rem 0 0;
 }
 
 /* ============================================================

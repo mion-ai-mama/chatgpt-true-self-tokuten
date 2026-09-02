@@ -20,8 +20,9 @@
   /* ------------------------------------------------------------
      SEO・OGP・favicon の反映
      ※ 検索エンジンやSNSのクローラーはJavaScriptを実行しない場合があるため、
-     　 description / OGP画像などは index.html の <head> 内も
-     　 あわせて書き換えることをおすすめします（README参照）。
+     　 description などは index.html の <head> 内もあわせて書き換えることを
+     　 おすすめします（README参照）。og:image はこのテンプレートでは
+     　 使用しない方針のため、ogpImage が null のときは何もしません。
   ------------------------------------------------------------ */
   function applyMeta(m) {
     if (!m) return;
@@ -29,7 +30,7 @@
     setMetaContent('meta[name="description"]', m.description);
     setMetaContent('meta[property="og:title"]', m.pageTitle);
     setMetaContent('meta[property="og:description"]', m.description);
-    setMetaContent('meta[property="og:image"]', m.ogpImage);
+    if (m.ogpImage) setMetaContent('meta[property="og:image"]', m.ogpImage);
     setMetaContent('meta[property="og:url"]', m.siteUrl);
     const favicon = document.querySelector('link[rel="icon"]');
     if (favicon && m.faviconPath) favicon.setAttribute("href", m.faviconPath);
@@ -72,103 +73,9 @@
   }
 
   /* ------------------------------------------------------------
-     実例動画
+     2. この資料でできること
   ------------------------------------------------------------ */
-  function renderExampleVideo(c) {
-    const root = document.getElementById("example-video");
-    if (!root || !c) return;
-
-    root.querySelector(".section__heading").innerHTML = c.heading;
-    const card = root.querySelector(".video-card");
-
-    let mediaHtml;
-    if (c.mode === "youtube" && c.youtube && c.youtube.embedUrl) {
-      mediaHtml = `
-        <div class="video-card__embed-wrap">
-          <iframe
-            src="${c.youtube.embedUrl}"
-            title="実際に作った動画"
-            allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy"></iframe>
-        </div>`;
-    } else {
-      const poster = c.local && c.local.poster ? c.local.poster : "";
-      const src = c.local && c.local.src ? c.local.src : "";
-      mediaHtml = `
-        <video
-          class="video-card__player"
-          controls
-          preload="none"
-          playsinline
-          poster="${poster}"
-          aria-label="実際に作った動画">
-          <source src="${src}" type="video/mp4">
-          <p class="video-card__fallback">${c.fallbackText || ""}</p>
-        </video>`;
-    }
-
-    card.innerHTML = mediaHtml + `<p class="video-card__caption">${c.caption}</p>`;
-  }
-
-  /* ------------------------------------------------------------
-     4〜6. STEP
-     steps 配列の数だけ、STEPセクションをその場で組み立てます。
-     （HTML側は steps-container という空の入れ物があるだけなので、
-     　content.js の steps を増減させれば、STEPの数も自由に変わります）
-  ------------------------------------------------------------ */
-  function renderSteps(steps) {
-    const container = document.getElementById("steps-container");
-    if (!container || !steps) return;
-
-    container.innerHTML = steps
-      .map((step, i) => {
-        const id = "step" + (i + 1);
-        const softClass = i % 2 === 1 ? " section--soft" : "";
-
-        let prose = (step.paragraphs || []).map((p) => `<p>${p}</p>`).join("");
-        if (step.list && step.list.length) {
-          prose += '<ul class="check-list">' + step.list.map((li) => `<li>${li}</li>`).join("") + "</ul>";
-        }
-        prose += (step.afterParagraphs || []).map((p) => `<p>${p}</p>`).join("");
-
-        const noteHtml = step.note
-          ? `<div class="note-box"><p class="note-box__label">${step.note.label}</p><p>${step.note.text}</p></div>`
-          : "";
-
-        return `
-        <section class="section${softClass} step" id="${id}" aria-labelledby="${id}-heading">
-          <div class="section__inner reveal">
-            <p class="step__number">${step.number}</p>
-            <h2 class="step__title" id="${id}-heading">${step.title}</h2>
-            <div class="prose">${prose}</div>
-            ${noteHtml}
-          </div>
-        </section>`;
-      })
-      .join("");
-  }
-
-  /* ------------------------------------------------------------
-     3. メインプロンプト
-  ------------------------------------------------------------ */
-  function renderMainPrompt(c) {
-    const root = document.getElementById("main-prompt");
-    if (!root || !c) return;
-    root.querySelector(".section__heading").innerHTML = c.heading;
-    root.querySelector(".section__desc").innerHTML = c.description;
-    const textEl = document.getElementById("main-prompt-text");
-    textEl.textContent = c.promptText;
-    const btn = root.querySelector(".copy-btn");
-    btn.setAttribute("data-copy-target", "main-prompt-text");
-    btn.querySelector(".copy-btn__label").textContent = c.buttonText;
-    btn.querySelector(".copy-btn__done").textContent = c.copiedText;
-  }
-
-  /* ------------------------------------------------------------
-     7. 結果をよくするコツ
-  ------------------------------------------------------------ */
-  const TIP_ICONS = ["📝", "🙋", "💬"];
+  const TIP_ICONS = ["🪞", "💭", "🌱"];
 
   function renderTips(c) {
     const root = document.getElementById("tips");
@@ -188,7 +95,87 @@
   }
 
   /* ------------------------------------------------------------
-     8. 追加で使える質問5選
+     3. 始める前の準備
+  ------------------------------------------------------------ */
+  function renderPrep(c) {
+    const root = document.getElementById("prep");
+    if (!root || !c) return;
+    root.querySelector(".section__heading").innerHTML = c.heading;
+    root.querySelector(".prose").innerHTML = (c.paragraphs || []).map((p) => `<p>${p}</p>`).join("");
+    const listEl = root.querySelector(".check-list");
+    if (listEl && c.list) {
+      listEl.innerHTML = c.list.map((li) => `<li>${li}</li>`).join("");
+    }
+  }
+
+  /* ------------------------------------------------------------
+     単発のコピー用プロンプトカード
+     （4. 自己紹介テンプレート／8. 30日間の行動プラン で共用）
+  ------------------------------------------------------------ */
+  function renderPromptCard(rootId, textId, c) {
+    const root = document.getElementById(rootId);
+    if (!root || !c) return;
+    root.querySelector(".section__heading").innerHTML = c.heading;
+    const descEl = root.querySelector(".section__desc");
+    if (descEl) {
+      if (c.description) {
+        descEl.innerHTML = c.description;
+        descEl.hidden = false;
+      } else {
+        descEl.hidden = true;
+      }
+    }
+    const textEl = document.getElementById(textId);
+    textEl.textContent = c.promptText;
+    const btn = root.querySelector(".copy-btn");
+    btn.setAttribute("data-copy-target", textId);
+    btn.querySelector(".copy-btn__label").textContent = c.buttonText;
+    btn.querySelector(".copy-btn__done").textContent = c.copiedText;
+  }
+
+  /* ------------------------------------------------------------
+     5〜6. 5つの質問（個別コピー）＋ まとめてコピー
+     まとめてコピーされる文章は items から自動生成します
+     （文章を二重管理しないための単一の情報源）。
+  ------------------------------------------------------------ */
+  function renderQuestions(c) {
+    const root = document.getElementById("questions");
+    if (!root || !c) return;
+    root.querySelector(".section__heading").innerHTML = c.heading;
+
+    const list = document.getElementById("questions-list");
+    list.innerHTML = c.items
+      .map((q, i) => {
+        const id = "main-question-" + (i + 1);
+        return `
+        <div class="question-card question-card--main">
+          <p class="question-card__number">${q.number}</p>
+          <h3 class="question-card__title">${q.title}</h3>
+          <pre class="question-card__text" id="${id}">${escapeHtml(q.question)}</pre>
+          <p class="question-card__insight"><span class="question-card__insight-label">この質問で分かること</span>${q.insight}</p>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="${id}" aria-label="質問${i + 1}をコピーする">
+            <span class="copy-btn__label">${c.buttonText}</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">${c.copiedText}</span>
+          </button>
+        </div>`;
+      })
+      .join("");
+
+    if (!c.bulk) return;
+    const bulkText = c.items.map((q, i) => `質問${i + 1}\n${q.question}`).join("\n\n");
+    const bulkPre = document.getElementById("questions-bulk-text");
+    if (bulkPre) bulkPre.textContent = bulkText;
+    const bulkBtn = document.getElementById("questions-bulk-copy-btn");
+    if (bulkBtn) {
+      bulkBtn.querySelector(".copy-btn__label").textContent = c.bulk.buttonText;
+      bulkBtn.querySelector(".copy-btn__done").textContent = c.bulk.copiedText;
+    }
+    const bulkNote = document.getElementById("questions-bulk-note");
+    if (bulkNote) bulkNote.textContent = c.bulk.note;
+  }
+
+  /* ------------------------------------------------------------
+     7. 回答が浅かったときの深掘り質問
   ------------------------------------------------------------ */
   function renderExtraQuestions(c) {
     const root = document.getElementById("extra-questions");
@@ -198,11 +185,11 @@
     const list = document.getElementById("extra-questions-list");
     list.innerHTML = c.questions
       .map((q, i) => {
-        const id = "question-" + (i + 1);
+        const id = "extra-question-" + (i + 1);
         return `
         <div class="question-card">
           <pre class="question-card__text" id="${id}">${escapeHtml(q)}</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="${id}" aria-label="追加質問${i + 1}をコピーする">
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="${id}" aria-label="深掘り質問${i + 1}をコピーする">
             <span class="copy-btn__label">${c.buttonText}</span>
             <span class="copy-btn__done" role="status" aria-live="polite">${c.copiedText}</span>
           </button>
@@ -212,7 +199,7 @@
   }
 
   /* ------------------------------------------------------------
-     9. 注意点
+     9. 大切な注意点
   ------------------------------------------------------------ */
   function renderCaution(c) {
     const root = document.getElementById("caution");
@@ -222,7 +209,17 @@
   }
 
   /* ------------------------------------------------------------
-     10. 最後の案内（CTA）
+     10. まとめ
+  ------------------------------------------------------------ */
+  function renderSummary(c) {
+    const root = document.getElementById("summary");
+    if (!root || !c) return;
+    root.querySelector(".prose").innerHTML = `<p>${c.paragraph}</p>`;
+    root.querySelector(".summary__highlight").innerHTML = c.highlight;
+  }
+
+  /* ------------------------------------------------------------
+     11. 最後の案内（CTA）
   ------------------------------------------------------------ */
   function renderCta(c) {
     const root = document.getElementById("cta");
@@ -259,7 +256,7 @@
   }
 
   /* ------------------------------------------------------------
-     11. フッター
+     12. フッター
   ------------------------------------------------------------ */
   function renderFooter(c) {
     const root = document.querySelector(".footer");
@@ -346,22 +343,25 @@
       try {
         applyMeta(CONTENT.meta);
         renderHero(CONTENT.hero);
-        renderExampleVideo(CONTENT.exampleVideo);
-        renderMainPrompt(CONTENT.mainPrompt);
-        renderSteps(CONTENT.steps);
         renderTips(CONTENT.tips);
+        renderPrep(CONTENT.prep);
+        renderPromptCard("intro-template", "intro-template-text", CONTENT.introTemplate);
+        renderQuestions(CONTENT.mainQuestions);
         renderExtraQuestions(CONTENT.extraQuestions);
+        renderPromptCard("action-plan", "action-plan-text", CONTENT.actionPlan);
         renderCaution(CONTENT.caution);
+        renderSummary(CONTENT.summary);
         renderCta(CONTENT.cta);
         renderFooter(CONTENT.footer);
 
         const s = CONTENT.sections || {};
-        toggleSection("example-video", s.video !== false);
-        toggleSection("main-prompt", s.mainPrompt !== false);
-        toggleSection("steps-container", s.steps !== false);
-        toggleSection("tips", s.tips !== false);
+        toggleSection("prep", s.prep !== false);
+        toggleSection("intro-template", s.introTemplate !== false);
+        toggleSection("questions", s.mainQuestions !== false);
         toggleSection("extra-questions", s.extraQuestions !== false);
+        toggleSection("action-plan", s.actionPlan !== false);
         toggleSection("caution", s.caution !== false);
+        toggleSection("summary", s.summary !== false);
       } catch (err) {
         // content.js の書き方に誤りがある場合はここに来ます。
         // index.html に書かれた初期文章がそのまま表示されるので、ページは壊れません。

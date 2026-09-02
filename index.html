@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AIで人気動画を分析する方法｜コピペで使える3STEPガイド</title>
-<meta name="description" content="人気の動画をChatGPTに見せるだけで「なぜ伸びたのか」「次の企画」が分かる。AI初心者さんでもすぐ試せる3STEPガイドです。コピペで使えるプロンプト付き。">
+<title>ChatGPTで「本当の自分」を深掘りする5つの質問</title>
+<meta name="description" content="自分でも気づいていない本音や思考のクセを、ChatGPTと一緒に整理する自己分析ガイドです。">
+<meta name="robots" content="noindex, nofollow">
 
-<!-- OGP（SNSでシェアされたときの表示設定） -->
+<!-- OGP（SNSでシェアされたときの表示設定）。og:image は使用しない方針のため設定していません。 -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="AIで人気動画を分析する方法｜コピペで使える3STEPガイド">
-<meta property="og:description" content="人気の動画をChatGPTに見せるだけで「なぜ伸びたのか」「次の企画」が分かる。AI初心者さんでもすぐ試せる3STEPガイドです。">
-<meta property="og:image" content="https://mion-ai-mama.github.io/instagram-tokuten-template/assets/images/video-poster.jpg">
-<meta property="og:url" content="https://mion-ai-mama.github.io/instagram-tokuten-template/">
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:title" content="ChatGPTで「本当の自分」を深掘りする5つの質問">
+<meta property="og:description" content="自分でも気づいていない本音や思考のクセを、ChatGPTと一緒に整理する自己分析ガイドです。">
+<meta property="og:url" content="https://mion-ai-mama.github.io/chatgpt-true-self-tokuten/">
+<meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#cf8a92">
 
 <link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml">
@@ -29,84 +29,249 @@
   ============================================================ -->
   <section class="hero" id="hero" aria-label="ページ紹介">
     <div class="hero__inner">
-      <p class="hero__label">AI初心者さん向け</p>
+      <p class="hero__label">Instagram限定プレゼント</p>
       <h1 class="hero__title">
-        AIで人気動画を<br>分析する方法
+        ChatGPTで「本当の自分」を<br>深掘りする5つの質問
       </h1>
       <p class="hero__subtitle">
-        コピペで使える<br>3STEPガイド
+        自分でも気づいていない本音や思考のクセを、<br>AIと一緒に整理してみませんか？
       </p>
       <p class="hero__desc">
-        人気の動画をChatGPTに見せると、<br>
-        「なぜ伸びたのか」や<br>
-        「次にどんな企画を作ればいいのか」を<br>
-        初心者にも分かりやすく整理してもらえます。
+        すべてコピペして使えます
       </p>
-      <a class="btn btn--primary btn--large" href="#step1" data-scroll>
-        3STEPを見てみる
+      <a class="btn btn--primary btn--large" href="#questions" data-scroll>
+        5つの質問を見る
       </a>
     </div>
   </section>
 
   <!-- ============================================================
-       実例動画セクション
+       2. この資料でできること
   ============================================================ -->
-  <section class="section" id="example-video" aria-labelledby="example-video-heading">
+  <section class="section" id="tips" aria-labelledby="tips-heading">
     <div class="section__inner reveal">
-      <h2 class="section__heading" id="example-video-heading">実際に作った動画はこちら</h2>
-      <div class="video-card">
-        <video
-          id="example-video-player"
-          class="video-card__player"
-          controls
-          preload="none"
-          playsinline
-          poster="assets/images/video-poster.jpg"
-          aria-label="AIで動画分析を行い制作した実例動画">
-          <source src="assets/videos/example.mp4" type="video/mp4">
-          <p class="video-card__fallback">
-            動画を読み込めませんでした。ブラウザや通信環境をご確認いただくか、時間をおいて再度お試しください。
-          </p>
-        </video>
-        <p class="video-card__caption">
-          この動画は、<br>
-          人気動画の構成や見せ方をAIで分析し、<br>
-          その結果を参考に作成した実例です。<br><br>
-          元の動画をそのまま真似するのではなく、<br>
-          分析したポイントを自分の企画に応用しています。
-        </p>
+      <h2 class="section__heading" id="tips-heading">この資料でできること</h2>
+      <div class="card-grid">
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">🪞</span>
+          <h3 class="card__title">本音との違いを整理できる</h3>
+          <p class="card__desc">自分が周りに見せている姿と、本音を整理できる。</p>
+        </div>
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">💭</span>
+          <h3 class="card__title">思考のクセを振り返れる</h3>
+          <p class="card__desc">自分でも気づいていない思考のクセを振り返れる。</p>
+        </div>
+        <div class="card">
+          <span class="card__icon" aria-hidden="true">🌱</span>
+          <h3 class="card__title">次の行動を決められる</h3>
+          <p class="card__desc">これから30日間で取り組む行動を決められる。</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       3. メインプロンプト（実例動画の直後に表示）
+       3. 始める前の準備
   ============================================================ -->
-  <section class="section section--soft" id="main-prompt" aria-labelledby="main-prompt-heading">
+  <section class="section section--soft" id="prep" aria-labelledby="prep-heading">
     <div class="section__inner reveal">
-      <h2 class="section__heading" id="main-prompt-heading">この指示文をコピーして使ってください</h2>
-      <p class="section__desc">下の文章をコピーして、<br>スクショと一緒にChatGPTへ送ってください。</p>
+      <h2 class="section__heading" id="prep-heading">まずは、いつも使っているChatGPTを開きましょう</h2>
+      <div class="prose">
+        <p>この質問は、ChatGPTがあなたについて知っている情報をもとに回答します。</p>
+        <p>過去に仕事、家族、悩み、目標などを相談しているチャットがあれば、そのチャットを開いてください。</p>
+        <p>5つの質問は、途中で新しいチャットに移動せず、必ず同じチャット内で順番に聞いてください。</p>
+        <p>ChatGPTに自分の情報がほとんどない場合は、最初に次の内容を簡単に伝えてください。</p>
+      </div>
+      <ul class="check-list">
+        <li>現在の仕事や生活</li>
+        <li>最近悩んでいること</li>
+        <li>これから変えたいこと</li>
+        <li>大切にしたいこと</li>
+        <li>理想の未来</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. 最初に伝える自己紹介テンプレート
+  ============================================================ -->
+  <section class="section" id="intro-template" aria-labelledby="intro-template-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="intro-template-heading">最初に伝える自己紹介テンプレート</h2>
+      <p class="section__desc">ChatGPTがあなたについてほとんど知らない場合は、こちらをコピーして最初に送ってください。</p>
 
       <div class="prompt-box">
-        <pre class="prompt-box__text" id="main-prompt-text">添付したスクショは
-YouTubeで人気の動画です。
+        <pre class="prompt-box__text" id="intro-template-text">私は現在、【現在の仕事や生活】という状況です。
 
-以下を分析してください。
+最近は、【悩んでいること】についてよく考えています。
 
-・この動画が伸びた理由
-・ターゲット
-・冒頭3秒の工夫
-・構成
-・視聴維持率が高そうなポイント
-・この動画を参考にした新しい企画を10個考えてください。
+これから、【変えたいこと・挑戦したいこと】を実現したいと思っています。
 
-初心者にも分かるように解説してください。</pre>
+一方で、【不安に感じていること】という気持ちもあります。
+
+私が大切にしたいのは、【大切にしたい価値観】です。
+
+これから私について質問するので、この内容も踏まえて回答してください。</pre>
         <button
           type="button"
           class="btn btn--primary copy-btn"
-          data-copy-target="main-prompt-text"
-          aria-label="メインプロンプトの指示文をコピーする">
-          <span class="copy-btn__label">この指示文をコピーする</span>
+          data-copy-target="intro-template-text"
+          aria-label="自己紹介テンプレートをコピーする">
+          <span class="copy-btn__label">自己紹介テンプレートをコピー</span>
+          <span class="copy-btn__done" role="status" aria-live="polite">コピーしました！ChatGPTに貼り付けてください</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5〜6. 5つの質問（questions-list の中身は js/content.js の
+       mainQuestions.items から自動生成されます。ここにあるHTMLは、
+       JavaScriptが読み込めなかった場合に表示される初期表示用です）
+  ============================================================ -->
+  <section class="section section--soft" id="questions" aria-labelledby="questions-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="questions-heading">5つの質問</h2>
+
+      <div class="question-list" id="questions-list">
+        <div class="question-card question-card--main">
+          <p class="question-card__number">質問 1</p>
+          <h3 class="question-card__title">周りに見せている自分と、本当の自分</h3>
+          <pre class="question-card__text" id="main-question-1">私について知っているすべての情報をもとに、私が周りに見せている自分と、本当の自分を教えて。</pre>
+          <p class="question-card__insight"><span class="question-card__insight-label">この質問で分かること</span>普段周りに見せている自分と、会話の中に表れている本音の違いを整理します。</p>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="main-question-1" aria-label="質問1をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card question-card--main">
+          <p class="question-card__number">質問 2</p>
+          <h3 class="question-card__title">自分でも気づいていないコンプレックス</h3>
+          <pre class="question-card__text" id="main-question-2">容赦なく正直に、私自身も気づいていない一番根深いコンプレックスを教えて。</pre>
+          <p class="question-card__insight"><span class="question-card__insight-label">この質問で分かること</span>行動や考え方に影響している可能性がある、不安や苦手意識を振り返ります。</p>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="main-question-2" aria-label="質問2をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card question-card--main">
+          <p class="question-card__number">質問 3</p>
+          <h3 class="question-card__title">繰り返している悪循環</h3>
+          <pre class="question-card__text" id="main-question-3">私が「変わりたい」と思いながら、今のままを繰り返してしまう悪循環は何ですか？</pre>
+          <p class="question-card__insight"><span class="question-card__insight-label">この質問で分かること</span>変わりたいのに動けないときに、繰り返している思考や行動のパターンを整理します。</p>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="main-question-3" aria-label="質問3をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card question-card--main">
+          <p class="question-card__number">質問 4</p>
+          <h3 class="question-card__title">悪循環を断ち切った先の未来</h3>
+          <pre class="question-card__text" id="main-question-4">この悪循環を断ち切ったら、私の人生は1年後、5年後、10年後にどう変わりますか？</pre>
+          <p class="question-card__insight"><span class="question-card__insight-label">この質問で分かること</span>今の行動を変えた場合に考えられる未来を、長期的な視点で整理します。</p>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="main-question-4" aria-label="質問4をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card question-card--main">
+          <p class="question-card__number">質問 5</p>
+          <h3 class="question-card__title">次の30日間でやること</h3>
+          <pre class="question-card__text" id="main-question-5">すべての回答を踏まえて、私が次の30日間でやるべき、最も効果的なことを1つだけ教えて。</pre>
+          <p class="question-card__insight"><span class="question-card__insight-label">この質問で分かること</span>自己分析だけで終わらせず、今から始められる具体的な行動を決めます。</p>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="main-question-5" aria-label="質問5をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="bulk-copy">
+        <p class="bulk-copy__note" id="questions-bulk-note">5つの質問は、このあと1つずつ順番に、同じチャット内で送ってください。</p>
+        <pre class="visually-hidden" id="questions-bulk-text">質問1
+私について知っているすべての情報をもとに、私が周りに見せている自分と、本当の自分を教えて。
+
+質問2
+容赦なく正直に、私自身も気づいていない一番根深いコンプレックスを教えて。
+
+質問3
+私が「変わりたい」と思いながら、今のままを繰り返してしまう悪循環は何ですか？
+
+質問4
+この悪循環を断ち切ったら、私の人生は1年後、5年後、10年後にどう変わりますか？
+
+質問5
+すべての回答を踏まえて、私が次の30日間でやるべき、最も効果的なことを1つだけ教えて。</pre>
+        <button
+          type="button"
+          id="questions-bulk-copy-btn"
+          class="btn btn--primary btn--large copy-btn"
+          data-copy-target="questions-bulk-text"
+          aria-label="5つの質問をまとめてコピーする">
+          <span class="copy-btn__label">5つの質問をまとめてコピー</span>
+          <span class="copy-btn__done" role="status" aria-live="polite">5つの質問をコピーしました！1つずつ順番に送ってください</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. 回答が浅かったときの深掘り質問
+  ============================================================ -->
+  <section class="section" id="extra-questions" aria-labelledby="extra-questions-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="extra-questions-heading">回答がしっくりこないときは、もう一歩深掘り</h2>
+      <p class="section__desc">ChatGPTの回答が一般的だった場合は、次の質問を続けて送ってみてください。</p>
+
+      <div class="question-list" id="extra-questions-list">
+        <div class="question-card">
+          <pre class="question-card__text" id="extra-question-1">そのように考えた理由を、私との過去の会話をもとに具体的に説明してください。</pre>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="extra-question-1" aria-label="深掘り質問1をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card">
+          <pre class="question-card__text" id="extra-question-2">私がまだ自覚できていない可能性がある部分を、もう一段深く分析してください。</pre>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="extra-question-2" aria-label="深掘り質問2をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card">
+          <pre class="question-card__text" id="extra-question-3">抽象的な表現ではなく、私の日常で起こりそうな具体例を挙げて説明してください。</pre>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="extra-question-3" aria-label="深掘り質問3をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+        <div class="question-card">
+          <pre class="question-card__text" id="extra-question-4">今の回答の中で、私が最も向き合う必要があることを1つに絞ってください。</pre>
+          <button type="button" class="btn btn--outline copy-btn" data-copy-target="extra-question-4" aria-label="深掘り質問4をコピーする">
+            <span class="copy-btn__label">コピーする</span>
+            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8. 結果を行動につなげる追加プロンプト
+  ============================================================ -->
+  <section class="section section--soft" id="action-plan" aria-labelledby="action-plan-heading">
+    <div class="section__inner reveal">
+      <h2 class="section__heading" id="action-plan-heading">最後に、行動プランを作ってみよう</h2>
+
+      <div class="prompt-box">
+        <pre class="prompt-box__text" id="action-plan-text">これまでの回答をもとに、私が次の30日間で取り組む行動を、1週目、2週目、3週目、4週目に分けて提案してください。忙しい日でも続けられるように、1日15分以内でできる内容にしてください。</pre>
+        <button
+          type="button"
+          class="btn btn--primary copy-btn"
+          data-copy-target="action-plan-text"
+          aria-label="30日間の行動プランをコピーする">
+          <span class="copy-btn__label">30日間の行動プランをコピー</span>
           <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
         </button>
       </div>
@@ -114,169 +279,46 @@ YouTubeで人気の動画です。
   </section>
 
   <!-- ============================================================
-       4〜6. STEP（steps-container の中身は js/content.js の steps
-       配列から自動生成されます。ここにあるHTMLは、JavaScriptが
-       読み込めなかった場合に表示される初期表示用です）
-  ============================================================ -->
-  <div id="steps-container">
-    <section class="section step" id="step1" aria-labelledby="step1-heading">
-      <div class="section__inner reveal">
-        <p class="step__number">STEP 1</p>
-        <h2 class="step__title" id="step1-heading">気になる人気動画を見つける</h2>
-        <div class="prose">
-          <p>YouTubeやInstagramで、次のような動画を探しましょう。</p>
-          <ul class="check-list">
-            <li>最後まで見てしまった動画</li>
-            <li>再生回数が多い動画</li>
-            <li>コメントや反応が多い動画</li>
-            <li>自分の発信テーマに近い動画</li>
-            <li>なぜか気になって何度も見た動画</li>
-          </ul>
-          <p>そのまま真似するのではなく、「なぜ気になったのか」を考える参考として選びましょう。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--soft step" id="step2" aria-labelledby="step2-heading">
-      <div class="section__inner reveal">
-        <p class="step__number">STEP 2</p>
-        <h2 class="step__title" id="step2-heading">動画のスクショを撮る</h2>
-        <div class="prose">
-          <p>動画の流れが分かるように、3〜5枚ほどスクショを撮ります。</p>
-          <ul class="check-list">
-            <li>動画のタイトルやサムネイル</li>
-            <li>冒頭の場面</li>
-            <li>内容が大きく動く場面</li>
-            <li>途中の重要な場面</li>
-            <li>最後のまとめや案内部分</li>
-          </ul>
-        </div>
-        <div class="note-box">
-          <p class="note-box__label">補足</p>
-          <p>YouTubeのURLだけでは分析できない場合があるため、スクショを送る方法がおすすめです。</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section step" id="step3" aria-labelledby="step3-heading">
-      <div class="section__inner reveal">
-        <p class="step__number">STEP 3</p>
-        <h2 class="step__title" id="step3-heading">スクショと指示文を<br>ChatGPTに送る</h2>
-        <div class="prose">
-          <p>ChatGPTを開いたら、<br>先ほど撮ったスクショを添付します。</p>
-          <p>そのあと、<br>このページにある指示文をコピーして送ってください。</p>
-          <p>難しい設定は必要ありません。</p>
-          <p>スクショを添付して、<br>指示文を貼り付けて送るだけです。</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ============================================================
-       7. 結果をよくするコツ
-  ============================================================ -->
-  <section class="section" id="tips" aria-labelledby="tips-heading">
-    <div class="section__inner reveal">
-      <h2 class="section__heading" id="tips-heading">さらに分かりやすい答えを<br>出してもらうコツ</h2>
-      <div class="card-grid">
-        <div class="card">
-          <span class="card__icon" aria-hidden="true">📝</span>
-          <h3 class="card__title">自分の目的を伝える</h3>
-          <p class="card__desc">「Instagramリールの企画に使いたい」など、何に使いたいのかを伝えると、より目的に合った答えが出やすくなります。</p>
-        </div>
-        <div class="card">
-          <span class="card__icon" aria-hidden="true">🙋</span>
-          <h3 class="card__title">誰向けかを伝える</h3>
-          <p class="card__desc">「40代・50代のAI初心者向け」など、届けたい相手を伝えると、企画の方向性が具体的になります。</p>
-        </div>
-        <div class="card">
-          <span class="card__icon" aria-hidden="true">💬</span>
-          <h3 class="card__title">難しい場合は聞き直す</h3>
-          <p class="card__desc">答えが難しいと感じたら、「もっと簡単な言葉で説明してください」と追加で伝えて大丈夫です。</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       8. 追加で使える質問5選
-  ============================================================ -->
-  <section class="section section--soft" id="extra-questions" aria-labelledby="extra-questions-heading">
-    <div class="section__inner reveal">
-      <h2 class="section__heading" id="extra-questions-heading">もっと深く分析したいときの<br>追加質問5選</h2>
-      <p class="section__desc">最初の分析結果を見たあと、<br>気になる質問を追加で送ってみてください。</p>
-
-      <div class="question-list" id="extra-questions-list">
-        <div class="question-card">
-          <pre class="question-card__text" id="question-1">この動画が伸びた一番大きな理由を、
-初心者にも分かるように3つ教えてください。</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-1" aria-label="追加質問1をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-        <div class="question-card">
-          <pre class="question-card__text" id="question-2">この動画の内容を、
-40代・50代の初心者向けに変えるとしたら、
-どのような企画になりますか？</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-2" aria-label="追加質問2をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-        <div class="question-card">
-          <pre class="question-card__text" id="question-3">この動画をInstagramリールにする場合、
-30秒以内の構成を考えてください。</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-3" aria-label="追加質問3をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-        <div class="question-card">
-          <pre class="question-card__text" id="question-4">このテーマを参考にしながら、
-内容が重ならない新しい企画を10個考えてください。</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-4" aria-label="追加質問4をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-        <div class="question-card">
-          <pre class="question-card__text" id="question-5">この動画の良い部分と、
-そのまま真似しない方がよい部分を教えてください。</pre>
-          <button type="button" class="btn btn--outline copy-btn" data-copy-target="question-5" aria-label="追加質問5をコピーする">
-            <span class="copy-btn__label">コピーする</span>
-            <span class="copy-btn__done" role="status" aria-live="polite">コピーしました</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       9. 注意点
+       9. 大切な注意点
   ============================================================ -->
   <section class="section" id="caution" aria-labelledby="caution-heading">
     <div class="section__inner reveal">
-      <h2 class="section__heading" id="caution-heading">人気動画を参考にするときの注意点</h2>
+      <h2 class="section__heading" id="caution-heading">ChatGPTの回答は「答え」ではなく、自分を振り返るヒントです</h2>
       <div class="prose">
-        <p>参考にするのは、テーマの見せ方や構成、伝え方のヒントです。<br>文章・画像・動画をそのまま使うのは避け、自分らしい企画に変えていきましょう。</p>
+        <p>ChatGPTは、あなたの本心を正確に見抜いたり、未来を予言したりできるものではありません。</p>
+        <p>回答は、これまでの会話や入力された情報をもとに生成された推測です。</p>
+        <p>すべてを事実として受け入れるのではなく、「自分を振り返るきっかけ」として活用してください。</p>
+        <p>回答を読んでつらくなった場合は、無理に続ける必要はありません。</p>
+        <p>心の悩みが深い場合は、医師や公認心理師などの専門家への相談を推奨します。</p>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
-       10. 最後の案内（CTA）
+       10. まとめ
+  ============================================================ -->
+  <section class="section section--soft" id="summary" aria-label="まとめ">
+    <div class="section__inner reveal">
+      <div class="prose">
+        <p>自分のことは、自分が一番分かっているようで、意外と気づいていない部分もあります。ChatGPTの回答を正解にするのではなく、自分の本音を考えるきっかけとして使ってみてください。大切なのは、分析して終わることではなく、今日できる小さな一歩につなげることです。</p>
+      </div>
+      <p class="summary__highlight">あなたの次の30日が、少しでも前に進むきっかけになりますように。</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       11. 最後の案内（CTA）
   ============================================================ -->
   <section class="section" id="cta" aria-labelledby="cta-heading">
     <div class="section__inner reveal">
       <div class="cta-card">
         <h2 class="cta-card__heading" id="cta-heading">AIをもっと仕事や暮らしに<br>活かしてみたい方へ</h2>
         <div class="prose">
-          <p>今回紹介した方法は、<br>AIの活用法のほんの一例です。</p>
-          <p>AIを知るだけではなく、<br>実際の仕事や日々の作業にどう活かすかを知ることで、<br>できることはさらに広がります。</p>
+          <p>今回の5つの質問は、<br>自分を知るためのほんの入口です。</p>
+          <p>自分の本音や思考のクセが見えてくると、<br>「これからどう働くか」「AIをどう活かすか」を考えるヒントにもなります。</p>
           <p>
             AI初心者さん向けに、<br>
-            AIを仕事に活かす考え方や方法をまとめた<br>
+            AIを仕事や暮らしに活かす考え方や方法をまとめた<br>
             <strong class="cta-card__highlight">『AIマネタイズの教科書』</strong><br>
             も無料でご用意しています。
           </p>
@@ -291,7 +333,7 @@ YouTubeで人気の動画です。
 </main>
 
 <!-- ============================================================
-     11. フッター
+     12. フッター
 ============================================================ -->
 <footer class="footer">
   <p>© MION</p>
