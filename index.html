@@ -26,14 +26,24 @@
 <main id="main">
 
   <!-- ============================================================
-       1. ファーストビュー
+       1. OP画像（メインビジュアル。タイトル・サブコピーは画像内にすでにあるため
+       テキストで繰り返しません。読み上げ・SEO用にh1だけ用意します）
   ============================================================ -->
-  <section class="hero" id="hero" aria-label="ページ紹介">
+  <section class="hero-image" id="hero-image" aria-label="ページ紹介">
+    <h1 class="visually-hidden">ChatGPTで「本当の自分」を深掘りする5つの質問　すべてコピペして使えます</h1>
+    <div class="hero-image__inner">
+      <img
+        class="hero-image__img"
+        src="assets/images/chatgpt-true-self-ogp.png"
+        alt="ChatGPTで「本当の自分」を深掘りする5つの質問">
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2. ファーストビュー（画像に含まれない補足文とCTAボタン）
+  ============================================================ -->
+  <section class="hero" id="hero" aria-label="このページについて">
     <div class="hero__inner">
-      <p class="hero__label">Instagram限定プレゼント</p>
-      <h1 class="hero__title">
-        ChatGPTで「本当の自分」を<br>深掘りする5つの質問
-      </h1>
       <p class="hero__subtitle">
         自分でも気づいていない本音や思考のクセを、<br>AIと一緒に整理してみませんか？
       </p>

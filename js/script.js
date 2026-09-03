@@ -58,13 +58,26 @@
   }
 
   /* ------------------------------------------------------------
-     1. ファーストビュー
+     1. OP画像
+  ------------------------------------------------------------ */
+  function renderHeroImage(c) {
+    const root = document.getElementById("hero-image");
+    if (!root || !c) return;
+    const h1 = root.querySelector(".visually-hidden");
+    if (h1 && c.a11yTitle) h1.textContent = c.a11yTitle;
+    const img = root.querySelector(".hero-image__img");
+    if (img) {
+      img.setAttribute("src", c.src);
+      img.setAttribute("alt", c.alt);
+    }
+  }
+
+  /* ------------------------------------------------------------
+     2. ファーストビュー
   ------------------------------------------------------------ */
   function renderHero(c) {
     const root = document.getElementById("hero");
     if (!root || !c) return;
-    root.querySelector(".hero__label").textContent = c.label;
-    root.querySelector(".hero__title").innerHTML = `${c.titleLine1}<br>${c.titleLine2}`;
     root.querySelector(".hero__subtitle").innerHTML = `${c.subtitleLine1}<br>${c.subtitleLine2}`;
     root.querySelector(".hero__desc").innerHTML = c.description;
     const btn = root.querySelector(".btn");
@@ -342,6 +355,7 @@
     if (typeof CONTENT !== "undefined") {
       try {
         applyMeta(CONTENT.meta);
+        renderHeroImage(CONTENT.heroImage);
         renderHero(CONTENT.hero);
         renderTips(CONTENT.tips);
         renderPrep(CONTENT.prep);

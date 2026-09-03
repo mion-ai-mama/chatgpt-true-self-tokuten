@@ -195,11 +195,30 @@ button:focus-visible {
 }
 
 /* ============================================================
-   1. ファーストビュー（ヒーロー）
+   1. OP画像／2. ファーストビュー（ヒーロー）
 ============================================================ */
 
+.hero-image {
+  padding: 0.6rem 0.5rem 0;
+}
+
+.hero-image__inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.hero-image__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 16px 32px -16px var(--color-card-shadow);
+}
+
 .hero {
-  padding: clamp(3.5rem, 12vw, 6rem) 1.25rem clamp(3rem, 8vw, 4.5rem);
+  padding: clamp(1.5rem, 6vw, 2.5rem) 1.25rem clamp(3rem, 8vw, 4.5rem);
   background: linear-gradient(180deg, var(--color-accent-light) 0%, #ffffff 100%);
   text-align: center;
 }
@@ -210,26 +229,6 @@ button:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.hero__label {
-  display: inline-block;
-  background: #fff;
-  color: var(--color-primary-dark);
-  border: 1px solid var(--color-accent-light);
-  border-radius: 999px;
-  padding: 0.4em 1.1em;
-  font-size: 0.85rem;
-  font-weight: 700;
-  margin: 0 0 1.5rem;
-}
-
-.hero__title {
-  font-size: clamp(1.9rem, 7vw, 2.6rem);
-  line-height: 1.45;
-  margin: 0 0 1rem;
-  font-weight: 800;
-  color: var(--color-text);
 }
 
 .hero__subtitle {
