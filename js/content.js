@@ -23,8 +23,8 @@ const CONTENT = {
     // 検索結果やSNSシェア時に表示される説明文（OGP説明文と同じ文言）
     description:
       "自分でも気づいていない本音や思考のクセを、ChatGPTと一緒に整理する自己分析ガイドです。",
-    // OGP画像は使用しない方針のため null（index.htmlにも og:image タグを置かない）
-    ogpImage: null,
+    // OGP画像（SNSシェア時に表示される画像。絶対URLである必要がある）
+    ogpImage: "https://mion-ai-mama.github.io/chatgpt-true-self-tokuten/assets/images/chatgpt-true-self-ogp.png",
     // このページの公開URL
     siteUrl: "https://mion-ai-mama.github.io/chatgpt-true-self-tokuten/",
     // faviconのパス

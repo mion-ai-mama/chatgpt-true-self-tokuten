@@ -21,8 +21,8 @@
      SEO・OGP・favicon の反映
      ※ 検索エンジンやSNSのクローラーはJavaScriptを実行しない場合があるため、
      　 description などは index.html の <head> 内もあわせて書き換えることを
-     　 おすすめします（README参照）。og:image はこのテンプレートでは
-     　 使用しない方針のため、ogpImage が null のときは何もしません。
+     　 おすすめします（README参照）。ogpImage が null の場合は og:image タグを
+     　 変更しません（index.html側にog:imageタグ自体が無ければ何も起きません）。
   ------------------------------------------------------------ */
   function applyMeta(m) {
     if (!m) return;

@@ -73,6 +73,8 @@ DBなし。すべて `js/content.js` の `CONTENT` オブジェクトが単一�
 
 ## 7. OGP・SEO方針
 
-- OGP画像: 設定しない（`meta.ogpImage: null`、`index.html` に `og:image` タグを置かない）
+- OGP画像: 専用画像（`assets/images/chatgpt-true-self-ogp.png`）を設定
+  （2026-09-03追記。シリーズの標準方針は「OGP画像は設定しない」だが、都度判断でよいことに
+  なっており、本ページはユーザーが専用画像を用意したため設定した）
 - OGPタイトル／説明文: ページタイトル・meta descriptionと同一の文言を使用
 - `robots: noindex, nofollow`

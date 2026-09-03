@@ -123,10 +123,10 @@ python3 -m http.server 8080
 
 ## 7. OGP画像とfaviconの差し替え方法
 
-- **OGP画像**：このページでは方針として設定していません（`meta.ogpImage` は `null`、
-  `index.html` にも `og:image` タグを置いていません）。設定したい場合は、画像を
-  `assets/images/` に追加し、`meta.ogpImage` に絶対URL（`https://`から始まるURL）を指定した上で、
-  `index.html` の `<head>` 内にも `<meta property="og:image" content="...">` を追加してください。
+- **OGP画像**：`assets/images/chatgpt-true-self-ogp.png` を設定済みです。差し替える場合は、
+  新しい画像を `assets/images/` に追加し、`content.js` の `meta.ogpImage` を絶対URL
+  （`https://`から始まるURL）で書き換えた上で、`index.html` の `<head>` 内にある
+  `<meta property="og:image" content="...">` も同じURLに書き換えてください。
 - **favicon**：`assets/favicon/favicon.svg` を差し替えてください。SVG以外の形式を使う場合は、
   `index.html` の `<link rel="icon">` と `content.js` の `meta.faviconPath` のパスも
   あわせて書き換えてください。
